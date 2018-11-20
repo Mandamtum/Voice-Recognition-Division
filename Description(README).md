@@ -18,4 +18,7 @@ commands, and currently, we have the commands, Mic is required:
 Errors are being resolved. One problem is it not executing without its design, which does not affect the program's usablility, but a current 
 real issue is the repeating "Hi", which you may inform me on how to fix. 
 
-# NEXT PROGRAM ON WEEK OF 25/11/18
+# Mandamtum-Project - 20/11/18
+Commands are revised and updated commands. New ones such as...
+* What's the weather?
+* What's the temperature?
