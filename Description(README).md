@@ -1,5 +1,4 @@
-I suggest you please test my programs. Please star, as I need to know of how many have used this program, and please test the following 
-
+I suggest you please test my programs. Please star, as I need to know of how many have used this project, and please test the following programs, right to the dates in each headline. 
 
 
 # Mandamtum-Project - 17/11/18 - VoiceRecognitionTst2
