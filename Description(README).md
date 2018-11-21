@@ -23,4 +23,4 @@ Commands are revised and updated commands. New ones such as...
 
 # Errors -
 Errors are being resolved. One problem is it not executing without its design, which does not affect the program's usablility, but a current 
-real issue is the repeating "Hi", which you may inform me on how to fix. 
+real issue is the repeating "Hi", which you may inform me on how to fix, if you may have experience with . 
