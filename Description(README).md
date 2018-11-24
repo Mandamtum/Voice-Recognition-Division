@@ -15,9 +15,12 @@ commands, and currently, we have the commands, Mic is required:
 * Open Youtube
 * Open Twitter
 * Open Amazon
+* Activate (To allow for use, use when...)
+* Deactivate (Say to deactivate and stop annoying voice reactions and assumptions.)
+
 
 # Mandamtum-Project - 20/11/18 - Mandamtum 1.0.0.1
-Commands are revised and updated commands. New ones such as...
+Commands are revised and updated. New ones such as...
 * What's the weather? (Sample in Baltimore, Maryland)
 * What's the temperature?
 
