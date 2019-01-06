@@ -1,3 +1,4 @@
+Discussion and Messaging Sites - https://discord.gg/FfgJztc 
 # Mandamtum-Project
 An assistant for windows, and many more OS's to come. Mandamtum is now meant to be an assistant for windows, 
 by responding to certain commands, and currently, my next goals are to expand response vocabulary to a casual level, 
