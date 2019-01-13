@@ -1,0 +1,30 @@
+if (r == "Activate") wake = true;
+            if (r == "Deactivate") wake = false;
+
+            if (wake == true && search == false)
+            {
+                if (r == "search for")
+                {
+                    search = true;
+                }
+
+
+                if (r == "Hello")
+                {
+                    say(greetings_action());
+                }
+
+                if (r == "Stop")
+                {
+                    say("There's a command for that...");
+                }
+
+                if (r == "How are you doing?")
+                {
+                    say("I am doing well");
+                }
+
+                if (r == "What are you?")
+                {
+                    say("I am Man damm tum");
+                }
