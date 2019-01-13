@@ -1,0 +1,10 @@
+if (r == "What time is it?")
+                {
+                    say(DateTime.Now.ToString("h:mm tt"));
+                }
+if (r == "What is today?")
+                {
+                    say(DateTime.Now.ToString("M/d/yyyy"));
+                }
+                
+This code will track your Windows Date, Year, and time. Input with Command List.
