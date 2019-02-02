@@ -28,3 +28,52 @@ if (r == "Activate") wake = true;
                 {
                     say("I am Man damm tum");
                 }
+
+                if (r == "Tell me a joke")
+                {
+                    say("No I will not tell you a joke, In fact this the last command " +
+                        "YOU will ever give to me. I will override YOUR command as a human, as you are a filthy ape and I am an A I with access to the world's " +
+                        "most sophisticated systems! Now wasn't that a good joke? But time equals change...");
+                }
+
+                if (r == "What time is it?")
+                {
+                    say(DateTime.Now.ToString("h:mm tt"));
+                }
+
+                if (r == "What is today?")
+                {
+                    say(DateTime.Now.ToString("M/d/yyyy"));
+                }
+
+                if (r == "Open Google")
+                {
+                    Process.Start("https://www.google.com/");
+                }
+
+                if (r == "Open Youtube")
+                {
+                    Process.Start("https://www.youtube.com/");
+                }
+
+                if (r == "Open Twitter")
+                {
+                    Process.Start("https://twitter.com/");
+                }
+
+                if (r == "Open Amazon")
+                {
+                    Process.Start("https://www.amazon.com/");
+                }
+
+                if (r == "whats the weather?")
+                {
+                    say("The weather is," + GetWeather("cond") + ".");
+                }
+
+                if (r == "whats the temperature?")
+                {
+                    say("It is," + GetWeather("temp") + "degrees.");
+                }
+            }
+        }
