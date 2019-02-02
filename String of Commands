@@ -1,0 +1,48 @@
+public Form1()
+        {
+            
+
+            SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
+
+            list.Add(new String[] {
+                "Hello",
+                "How are you doing?",
+                "What are you?",
+                "Tell me a joke",
+                "What time is it?",
+                "What is today?",
+                "Open Google",
+                "Activate",
+                "Deactivate",
+                "Open Youtube",
+                "Open Twitter",
+                "Open Amazon",
+                "whats the weather?",
+                "whats  the temperature?",
+                "Stop",
+                "search for"});
+
+            list.Add(File.ReadAllLines(@"C:\Users\Larry\Desktop\cmds.txt"));
+
+            Grammar gr = new Grammar(new GrammarBuilder(list));
+
+            try{
+                rec.RequestRecognizerUpdate();
+                rec.LoadGrammar(gr);
+                rec.SpeechRecognized += rec_SpeechRecognized;
+                rec.SetInputToDefaultAudioDevice();
+                rec.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch { return; }
+
+
+            s.SelectVoiceByHints(VoiceGender.Male);
+
+            
+
+            InitializeComponent();
+            
+
+
+
+        }
