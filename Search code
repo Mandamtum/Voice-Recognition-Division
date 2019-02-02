@@ -1,0 +1,10 @@
+private void rec_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            String r = e.Result.Text;
+
+            if (search)
+            {
+                Process.Start("https://www.google.com/search?q="+r);
+
+                search = false;
+            }
