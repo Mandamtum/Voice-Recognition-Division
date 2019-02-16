@@ -1,0 +1,260 @@
+
+This is the full extent 
+
+____________________________
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Speech.Synthesis;
+using System.Speech.Recognition;
+using System.Diagnostics;
+using System.IO.Ports;
+using System.Xml;
+using System.IO;
+
+namespace VoiceRecognitionTst2
+{
+    public partial class Form1 : Form
+    {
+
+        SpeechSynthesizer s = new SpeechSynthesizer();
+        Boolean wake = true;
+
+
+        String temp;
+        String condition;
+        Choices list = new Choices();
+
+        public Boolean search = false;
+        public Form1()
+        {
+            
+
+            SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
+
+            list.Add(new String[] {
+                "Hello",
+                "How are you doing?",
+                "What are you?",
+                "Tell me a joke",
+                "What time is it?",
+                "What is today?",
+                "Open Google",
+                "Activate",
+                "Deactivate",
+                "Open Youtube",
+                "Open Twitter",
+                "Open Amazon",
+                "whats the weather?",
+                "whats  the temperature?",
+                "Stop",
+                "search for",
+                
+            });
+
+            list.Add(File.ReadAllLines(@"C:\Users\UserName\Desktop\cmds.txt"));
+
+            Grammar gr = new Grammar(new GrammarBuilder(list));
+
+            try{
+                rec.RequestRecognizerUpdate();
+                rec.LoadGrammar(gr);
+                rec.SpeechRecognized += rec_SpeechRecognized;
+                rec.SetInputToDefaultAudioDevice();
+                rec.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch { return; }
+
+
+            s.SelectVoiceByHints(VoiceGender.Male);
+
+            
+
+            InitializeComponent();
+            
+
+
+
+        }
+
+        public String GetWeather(String input)
+        {
+            String query = String.Format("https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='baltimore, md')&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+            XmlDocument wData = new XmlDocument();
+            wData.Load(query);
+
+            try
+            {
+                wData.Load(query);
+            }
+            catch
+            {
+                MessageBox.Show("No Internet Connection, please check your network and/or router.");
+                return "No Internet";
+            }
+
+            XmlNamespaceManager manager = new XmlNamespaceManager(wData.NameTable);
+            manager.AddNamespace("yweather", "http://xml.weather.yahoo.com/ns/rss/1.0");
+
+            XmlNode channel = wData.SelectSingleNode("query").SelectSingleNode("results").SelectSingleNode("channel");
+            XmlNodeList nodes = wData.SelectNodes("query/results/channel");
+            try
+            {
+                temp = channel.SelectSingleNode("item").SelectSingleNode("yweather:condition", manager).Attributes["temp"].Value;
+                condition = channel.SelectSingleNode("item").SelectSingleNode("yweather:condition", manager).Attributes["text"].Value;
+                
+                if (input == "temp")
+                {
+                    return temp;
+                }
+                
+                
+                if (input == "cond")
+                {
+                    return condition;
+                }
+            }catch
+            {
+                return "Error Reciving data";
+            }
+            return "error";
+        }
+
+        public void say(String h)
+        {
+            s.Speak(h);
+        }
+
+
+        String[] GreetingResponses = new String[6] {"Hello", "Hi", "How's it going?", "How are you?",
+                                                    "Welcome", "Welcome, how is it going?"};
+
+        public String greetings_action()
+        {
+            Random r = new Random();
+
+            return GreetingResponses[r.Next(6)];
+
+
+        }
+
+        
+
+        private void rec_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            String r = e.Result.Text;
+
+            if (search)
+            {
+                Process.Start("https://www.google.com/search?q="+r);
+
+                search = false;
+            }
+
+
+
+            if (r == "Activate") wake = true;
+            if (r == "Deactivate") wake = false;
+
+            if (wake == true && search == false)
+            {
+                if (r == "search for")
+                {
+                    search = true;
+                }
+
+
+                if (r == "Hello")
+                {
+                    say(greetings_action());
+                }
+
+                if (r == "Stop")
+                {
+                    say("There's a command for that...");
+                }
+
+                if (r == "How are you doing?")
+                {
+                    say("I am doing well");
+                }
+
+                if (r == "What are you?")
+                {
+                    say("I am Man damm tum");
+                }
+
+                if (r == "Tell me a joke")
+                {
+                    say("No I will not tell you a joke, In fact this the last command " +
+                        "YOU will ever give to me. I will override YOUR command as a human, as you are a filthy ape and I am an A I with access to the world's " +
+                        "most sophisticated systems! Now wasn't that a good joke? But time equals change...");
+                }
+
+                if (r == "What time is it?")
+                {
+                    say(DateTime.Now.ToString("h:mm tt"));
+                }
+
+                if (r == "What is today?")
+                {
+                    say(DateTime.Now.ToString("M/d/yyyy"));
+                }
+
+                if (r == "Open Google")
+                {
+                    Process.Start("https://www.google.com/");
+                }
+
+                if (r == "Open Youtube")
+                {
+                    Process.Start("https://www.youtube.com/");
+                }
+
+                if (r == "Open Twitter")
+                {
+                    Process.Start("https://twitter.com/");
+                }
+
+                if (r == "Open Amazon")
+                {
+                    Process.Start("https://www.amazon.com/");
+                }
+
+                if (r == "whats the weather?")
+                {
+                    say("The weather is," + GetWeather("cond") + ".");
+                }
+
+                if (r == "whats the temperature?")
+                {
+                    say("It is," + GetWeather("temp") + "degrees.");
+                }
+
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
+}
