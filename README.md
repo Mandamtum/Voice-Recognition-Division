@@ -27,3 +27,5 @@ Commands are revised and updated. New ones such as...
 # Errors -
 Errors are being resolved. One problem is it not executing without its design, which does not affect the program's usablility, but a current 
 real issue is the repeating "Hi", which you may inform me on how to fix, if you may have experience with . 
+
+PLEASE NOTE THAT THIS IS THE HOME PAGE OF MANDAMTUM VOICE RECOGNITION, AND OTHER MAJOR FEATURES ARE BEING MOVED, MADE, AND DEVELOPED IN OTHER REPOSITORIES FOR ORGANIZATION, BUT FULL PROGRAMS AND THEIR MAJOR FEATURES ARE UPLOADED HERE. 
