@@ -32,4 +32,4 @@ PLEASE NOTE THAT THIS IS THE HOME PAGE OF MANDAMTUM VOICE RECOGNITION, AND OTHER
 
 https://github.com/Mandamtum/Custodium - Custodium
 
-https://github.com/Mandamtum/Mandamtum-Arduino - Arduino (*Slow Develoment*)
+https://github.com/Mandamtum/Mandamtum-Arduino - Arduino (*Slow Development*)
