@@ -29,3 +29,6 @@ Errors are being resolved. One problem is it not executing without its design, w
 real issue is the repeating "Hi", which you may inform me on how to fix, if you may have experience with . 
 
 PLEASE NOTE THAT THIS IS THE HOME PAGE OF MANDAMTUM VOICE RECOGNITION, AND OTHER MAJOR FEATURES ARE BEING MOVED, MADE, AND DEVELOPED IN OTHER REPOSITORIES FOR ORGANIZATION, BUT FULL PROGRAMS AND THEIR MAJOR FEATURES ARE UPLOADED HERE. 
+
+https://github.com/Mandamtum/Custodium - Custodium
+https://github.com/Mandamtum/Mandamtum-Arduino - Arduino (*Slow Develoment*)
