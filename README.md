@@ -1,5 +1,3 @@
-I suggest you please test my programs. Please star, as I need to know of how many have used this project, and please test the following programs, right to the dates in each headline. 
-
 
 # Mandamtum-Project - 17/11/18 - VoiceRecognitionTst2
 An assistant for windows, and many more OS's to come. Mandamtum is now meant to be an assistant for windows, by responding to certain 
