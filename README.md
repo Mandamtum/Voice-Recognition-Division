@@ -1,6 +1,5 @@
 # Mandamtum-Project - 17/11/18 - VoiceRecognitionTst2
-An assistant for windows, and many more OS's to come. Mandamtum is now meant to be an assistant for windows, by responding to certain 
-commands, and currently, we have the commands, Mic is required:
+Just a little test I'm performing for an upcoming project I'll be doing the future.
 * Hello
 * Stop
 * How are you doing?
@@ -14,12 +13,6 @@ commands, and currently, we have the commands, Mic is required:
 * Open Amazon
 * Activate (To allow for use, use when...)
 * Deactivate (Say to deactivate and stop annoying voice reactions and assumptions.)
-
-
-# Mandamtum-Project - 20/11/18 - Mandamtum 1.0.0.1
-Commands are revised and updated. New ones such as...
-* What's the weather? (Sample in Baltimore, Maryland)  - being revamped
-* What's the temperature? - being revamped
 
 # Errors -
 Errors are being resolved. One problem is it not executing without its design, which does not affect the program's usablility, but a current 
